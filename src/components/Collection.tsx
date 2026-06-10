@@ -128,6 +128,7 @@ export function Collection() {
             </div>
           ))}
         </div>
+        
       </div>
     </section>
   );
