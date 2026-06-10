@@ -8,8 +8,8 @@ const solutionsLinks = [
   { name: "Running Footwear", href: "#showroom" },
   { name: "Basketball Shoes", href: "#showroom" },
   { name: "Hiking & Outdoor", href: "#showroom" },
-  { name: "OEM/ODM Production", href: "#inquiry" },
-  { name: "Custom Brand Development", href: "#inquiry" },
+  { name: "OEM/ODM Production", href: "#contact" },
+  { name: "Custom Brand Development", href: "#contact" },
 ];
 
 const contactItems = [

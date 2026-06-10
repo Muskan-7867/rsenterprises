@@ -47,7 +47,7 @@ export function Collection() {
   const filtered = active === "All" ? products : products.filter((p) => p.category === active);
 
   return (
-    <section id="showroom" className="py-12 sm:py-14 ">
+    <section id="showroom" className="py-12 sm:py-24 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
@@ -128,7 +128,7 @@ export function Collection() {
             </div>
           ))}
         </div>
-        
+
       </div>
     </section>
   );

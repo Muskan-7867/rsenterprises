@@ -7,7 +7,7 @@ const contactItems = [
   { icon: <Phone size={18} />, label: "Phone",           value: "+91 (800) 555-SHOE" },
 ];
 
-export function Inquiry() {
+export function Contact() {
   const [form, setForm] = useState({
     name: "", company: "", email: "", phone: "",
     quantity: "", category: "", message: "",
@@ -24,10 +24,10 @@ export function Inquiry() {
   };
 
   const inputBase =
-    "w-full px-4 py-2.5 sm:py-3 border-[1.5px] border-slate-200 rounded-xl text-sm text-slate-800 bg-white placeholder:text-slate-400  outline-none transition-all duration-200 font-sans appearance-none";
+    "w-full px-4 py-2.5 sm:py-3 border-[1.5px] border-slate-200 rounded-xl text-sm text-slate-800 bg-white placeholder:text-slate-400  outline-none transition-all duration-200 font-sans appearance-none ";
 
   return (
-    <section id="inquiry" className="py-14 sm:py-20 ">
+    <section id="contact" className="py-14 sm:py-24 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-10 sm:gap-14 lg:gap-20 items-start">
 
@@ -68,7 +68,7 @@ export function Inquiry() {
               <div className="flex flex-col items-center justify-center text-center gap-4 py-8 sm:py-12">
                 <span className="text-5xl">✅</span>
                 <h3 className="font-heading text-xl sm:text-2xl font-medium text-slate-900">
-                  Inquiry Received!
+                  Message Received!
                 </h3>
                 <p className="text-sm text-slate-500 leading-[1.7] max-w-xs">
                   Thank you for reaching out. Our team will get back to you within 24 business hours.
@@ -140,7 +140,7 @@ export function Inquiry() {
                   type="submit"
                   className="w-full py-3 sm:py-3.5 bg-gradient-to-br from-orange-500 to-orange-600 text-white font-semibold text-sm rounded-full hover:-translate-y-0.5 transition-all duration-300 cursor-pointer border-none mt-1"
                 >
-                  Submit Inquiry →
+                  Send Message →
                 </button>
               </form>
             )}

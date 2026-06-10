@@ -5,7 +5,7 @@ const navLinks = [
   { label: "Home",     href: "#home" },
   { label: "Showroom", href: "#showroom" },
   { label: "Features", href: "#features" },
-  { label: "Contact",  href: "#inquiry" },
+  { label: "Contact",  href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -56,7 +56,7 @@ export default function Navbar() {
 
         {/* CTA — hidden on sm, shown on md+ */}
         <a
-          href="#inquiry"
+          href="#contact"
           className="hidden md:inline-flex items-center px-4 lg:px-[22px] py-2 lg:py-[9px] bg-gradient-to-br from-orange-500 to-orange-600 text-white font-semibold text-sm rounded-full  transition-all duration-300 no-underline"
         >
           Get a Quote
@@ -90,7 +90,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#inquiry"
+            href="#contact"
             className="mt-3 text-center px-8 py-3 bg-gradient-to-br from-orange-500 to-orange-600 text-white font-semibold text-sm rounded-full no-underline"
             onClick={() => setIsOpen(false)}
           >

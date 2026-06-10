@@ -67,6 +67,7 @@ export default function Hero() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-10 w-full sm:w-auto">
                 <Link
                   to="/"
+                  hash="showroom"
                   className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-br from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 transition text-white font-semibold shadow-lg text-sm sm:text-base"
                 >
                   Explore Collection
@@ -74,6 +75,7 @@ export default function Hero() {
 
                 <Link
                   to="/"
+                  hash="contact"
                   className="w-full sm:w-auto text-center px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-white/30 hover:bg-white/10 transition text-white font-semibold text-sm sm:text-base"
                 >
                   Request Quote

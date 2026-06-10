@@ -4,7 +4,7 @@ const banners = [
     title: "Your Brand. Our Factory.",
     subtitle: "We manufacture to your exact specs — from sole to upper. Private-label and white-label programs available for any volume.",
     cta: "Explore OEM Services",
-    href: "#inquiry",
+    href: "#contact",
     img: "/banner.png",
     mobileImg: "/mob2.png",
     ctaClass: "bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-[0_4px_18px_rgba(249,115,22,0.45)] hover:shadow-[0_6px_24px_rgba(249,115,22,0.65)]",
@@ -15,7 +15,7 @@ const banners = [
 
 export function Banners() {
   return (
-    <section id="banners" className="py-12 sm:py-14">
+    <section id="banners" className="py-12 sm:py-24">
       <div className="w-full flex flex-col gap-4 sm:gap-5">
         <div className="group relative overflow-hidden h-[260px] sm:h-[360px] md:h-[600px] cursor-pointer">
 

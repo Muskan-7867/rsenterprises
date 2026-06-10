@@ -5,7 +5,7 @@ import { Features } from '#/components/Features'
 import Hero from '#/components/Hero'
 import { Collection } from '#/components/Collection'
 import { Banners } from '#/components/Banners'
-import { Inquiry } from '#/components/Inquiry'
+import { Contact } from '#/components/Contact'
 import { Banner2 } from '#/components/Banner2'
 
 export const Route = createFileRoute('/')({
@@ -100,7 +100,7 @@ function Home() {
         <Banners />
         <Features />
         <Banner2 />
-        <Inquiry />
+        <Contact />
       </main>
       <Footer />
     </>
