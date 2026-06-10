@@ -1,14 +1,7 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 
 import appCss from '../styles.css?url'
-import Navbar from '#/components/Navbar'
-import { Footer } from '#/components/Footer'
-import { Features } from '#/components/Features'
-import Hero from '#/components/Hero'
-import { Collection } from '#/components/Collection'
-import { Banners } from '#/components/Banners'
-import { Inquiry } from '#/components/Inquiry'
-import { Banner2 } from '#/components/Banner2'
+
 
 export const Route = createRootRoute({
   head: () => ({
@@ -49,17 +42,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <Navbar />
-        <main>
-          <Hero />
-          {children}
-          <Collection />
-          <Banners />
-          <Features />
-          <Banner2 />
-          <Inquiry />
-        </main>
-        <Footer />
+       {children}
         <Scripts />
       </body>
     </html>

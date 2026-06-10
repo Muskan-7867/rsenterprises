@@ -32,9 +32,9 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#home" className="flex items-center gap-1 no-underline shrink-0">
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-[10px] flex items-center justify-center text-white shrink-0">
-            <img src="./public/Logo.png" />
+            <img src="/logo.png" />
           </div>
-          <span className="font-heading text-base sm:text-xl font-extrabold text-white tracking-tight">
+          <span className="font-heading text-base sm:text-xl font-semibold text-white tracking-tight">
             <span className="text-orange-500">Enterprises</span>
           </span>
         </a>
