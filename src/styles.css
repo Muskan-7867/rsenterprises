@@ -108,7 +108,11 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-html, body, #app { min-height: 100%; }
+html,
+body,
+#app {
+  min-height: 100%;
+}
 
 body {
   margin: 0;
@@ -135,39 +139,97 @@ body {
 
 /* ===== KEYFRAMES ===== */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes blinkPulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
 }
 
 @keyframes scrollPulse {
-  0%   { transform: scaleY(0); transform-origin: top;    opacity: 0; }
-  40%  { transform: scaleY(1); transform-origin: top;    opacity: 1; }
-  80%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
-  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+
+  40% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+
+  80% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    opacity: 0;
+  }
 }
 
 /* Animation utility classes */
-.anim-0  { animation: fadeInUp 0.6s ease 0s    both; }
-.anim-1  { animation: fadeInUp 0.7s ease 0.1s  both; }
-.anim-2  { animation: fadeInUp 0.8s ease 0.2s  both; }
-.anim-3  { animation: fadeInUp 0.9s ease 0.3s  both; }
-.anim-4  { animation: fadeInUp 1s   ease 0.4s  both; }
-.anim-5  { animation: fadeInUp 1.2s ease 0.8s  both; }
-.anim-blink  { animation: blinkPulse 2s infinite; }
-.anim-scroll { animation: scrollPulse 2s ease infinite; }
+.anim-0 {
+  animation: fadeInUp 0.6s ease 0s both;
+}
+
+.anim-1 {
+  animation: fadeInUp 0.7s ease 0.1s both;
+}
+
+.anim-2 {
+  animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.anim-3 {
+  animation: fadeInUp 0.9s ease 0.3s both;
+}
+
+.anim-4 {
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+.anim-5 {
+  animation: fadeInUp 1.2s ease 0.8s both;
+}
+
+.anim-blink {
+  animation: blinkPulse 2s infinite;
+}
+
+.anim-scroll {
+  animation: scrollPulse 2s ease infinite;
+}
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground font-sans;
   }
+
   html {
     @apply font-sans;
   }

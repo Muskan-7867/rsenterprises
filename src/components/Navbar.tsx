@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home",     href: "#home" },
+  { label: "Home", href: "#home" },
   { label: "Showroom", href: "#showroom" },
   { label: "Features", href: "#features" },
-  { label: "Contact",  href: "#contact" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [isOpen,   setIsOpen]   = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -18,13 +18,35 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
+  // Close menu on screen resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${scrolled
           ? "bg-white/92 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.2)]"
           : "bg-white"
-      }`}
+        }`}
     >
       {/* Main bar */}
       <div className="flex items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-[14px]">
@@ -62,40 +84,68 @@ export default function Navbar() {
           Get a Quote
         </a>
 
-        {/* Mobile toggle */}
+        {/* Mobile menu trigger */}
         <button
-          className="md:hidden bg-transparent border-none text-black cursor-pointer flex items-center p-1"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+          onClick={() => setIsMenuOpen(true)}
+          className="md:hidden bg-transparent border-none text-black dark:text-white cursor-pointer flex items-center p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-md focus:outline-none"
+          aria-label="Open Menu"
         >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
+          <Menu size={24} />
         </button>
-      </div>
 
-      {/* Mobile dropdown */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 bg-[#050d1a]/98 border-t border-white/[0.08] ${
-          isOpen ? "max-h-96 py-4 px-4 sm:px-6" : "max-h-0"
-        }`}
-      >
-        <div className="flex flex-col gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-[0.9rem] font-medium text-white/85 py-3 border-b border-white/[0.06] hover:text-orange-400 transition-colors duration-200 no-underline"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="mt-3 text-center px-8 py-3 bg-gradient-to-br from-orange-500 to-orange-600 text-white font-semibold text-sm rounded-full no-underline"
-            onClick={() => setIsOpen(false)}
+        {/* Mobile menu drawer */}
+        <div
+          className={`fixed inset-0 z-[1001] transition-all duration-300 md:hidden ${
+            isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/40 backdrop-blur-xs transition-opacity duration-300"
+            onClick={() => setIsMenuOpen(false)}
+          />
+
+          {/* Drawer container */}
+          <div
+            className={`absolute top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white dark:bg-neutral-900 border-l border-neutral-200/80 dark:border-neutral-800/80 shadow-2xl p-6 flex flex-col gap-6 transition-transform duration-300 ease-out transform ${
+              isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
           >
-            Get a Quote
-          </a>
+            {/* Header with logo & close button */}
+            <div className="flex items-center justify-between">
+              <span className="font-heading text-lg font-semibold text-neutral-900 dark:text-white">
+                <span className="text-orange-500">Enterprises</span>
+              </span>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-1.5 rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-500 dark:text-neutral-400 cursor-pointer focus:outline-none border-none bg-transparent"
+                aria-label="Close Menu"
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Links */}
+            <div className="flex flex-col gap-3 mt-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-[0.95rem] font-medium text-neutral-800 dark:text-neutral-200 py-2.5 px-4 hover:bg-orange-500 hover:text-white transition-colors duration-200 no-underline rounded-xl cursor-pointer"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <a
+                href="#contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="flex items-center justify-center w-full px-4 py-2.5 mt-4 bg-gradient-to-br from-orange-500 to-orange-600 text-white font-semibold text-sm rounded-full no-underline transition-all duration-300"
+              >
+                Get a Quote
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
